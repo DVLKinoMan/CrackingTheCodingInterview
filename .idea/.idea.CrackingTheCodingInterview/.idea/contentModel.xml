@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\d.dvali\.nuget\packages\microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\d.dvali\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\d.dvali\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\d.dvali\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.api.dll" t="Include" />
+    <e p="C:\Users\d.dvali\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.dll" t="Include" />
+    <e p="C:\Users\d.dvali\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\d.dvali\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\d.dvali\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\d.dvali\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_CrackingTheCodingInterview.788792123.00" t="ExcludeRecursive" />
+    <e p="C:\Users\d.dvali\RiderProjects\CrackingTheCodingInterview" t="IncludeFlat">
+      <e p="CrackingTheCodingInterview.Domain" t="IncludeRecursive">
+        <e p="ArraysAndStrings.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Classes" t="Include">
+          <e p="CustomHashSet.cs" t="Include" />
+        </e>
+        <e p="CrackingTheCodingInterview.Domain.csproj" t="IncludeRecursive" />
+        <e p="LinkedLists.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="CrackingTheCodingInterview.Domain.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="CrackingTheCodingInterview.sln" t="IncludeFlat" />
+      <e p="CrackingTheCodingInterview.Tests" t="IncludeRecursive">
+        <e p="ArrayAndStringsTester.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CrackingTheCodingInterview.Tests.csproj" t="IncludeRecursive" />
+        <e p="LinkedListsTester.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="CrackingTheCodingInterview.Tests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
