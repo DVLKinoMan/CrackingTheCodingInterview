@@ -319,7 +319,6 @@ namespace CrackingTheCodingInterview.Tests
         [Test]
         public void IntersectionNodeTest()
         {
-    
             var root1 = new LinkListNode(7)
             {
                 Next = new LinkListNode(1)
@@ -340,6 +339,29 @@ namespace CrackingTheCodingInterview.Tests
             };
 
             Assert.That(IntersectionNode(root1, root2), Is.EqualTo(root1));
+        }
+
+        [Test]
+        public void LoopDetectionTest()
+        {
+            var root1 = new LinkListNode(1)
+            {
+                Next = new LinkListNode(2)
+                {
+                    Next = new LinkListNode(3)
+                    {
+                        Next = new LinkListNode(4)
+                        {
+                            Next = new LinkListNode(3)
+                            {
+                                Next = new LinkListNode(4)
+                            }
+                        }
+                    }
+                }
+            };
+    
+            Assert.That(LoopDetection(root1), Is.EqualTo(3));
         }
     }
 }
