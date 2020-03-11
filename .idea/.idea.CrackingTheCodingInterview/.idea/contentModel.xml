@@ -18,6 +18,8 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Classes" t="Include">
           <e p="CustomHashSet.cs" t="Include" />
+          <e p="MyQueue.cs" t="Include" />
+          <e p="MyStack.cs" t="Include" />
         </e>
         <e p="CrackingTheCodingInterview.Domain.csproj" t="IncludeRecursive" />
         <e p="LinkedLists.cs" t="Include" />
@@ -28,6 +30,7 @@
             </e>
           </e>
         </e>
+        <e p="StackAndQueues.cs" t="Include" />
       </e>
       <e p="CrackingTheCodingInterview.sln" t="IncludeFlat" />
       <e p="CrackingTheCodingInterview.Tests" t="IncludeRecursive">
@@ -35,6 +38,8 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="CrackingTheCodingInterview.Tests.csproj" t="IncludeRecursive" />
         <e p="LinkedListsTester.cs" t="Include" />
+        <e p="MyQueueTester.cs" t="Include" />
+        <e p="MyStackTester.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -42,6 +47,7 @@
             </e>
           </e>
         </e>
+        <e p="StackAndQueuesTester.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
