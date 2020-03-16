@@ -7,6 +7,7 @@
         public int Val { get; }
         public TreeNode Left { get; set; }
         public TreeNode Right { get; set; }
+        public TreeNode Parent { get; set; }
         
         public override bool Equals(object? obj)
         {

@@ -95,5 +95,168 @@ namespace CrackingTheCodingInterview.Tests
             };
             var actual = ConstructLinkListNodes(treenode);
         }
+
+        [Test]
+        public void BalancedTreeTest()
+        {
+            var treenode = new TreeNode(5)
+            {
+                Left = new TreeNode(2)
+                {
+                    Left = new TreeNode(1),
+                    Right = new TreeNode(3)
+                    {
+                        Right = new TreeNode(4)
+                    }
+                },
+                Right = new TreeNode(7)
+                {
+                    Left = new TreeNode(6),
+                    Right = new TreeNode(8)
+                    {
+                        Right = new TreeNode(9)
+                    }
+                }
+            };
+            var actual = IsBalancedTree(treenode);
+            
+            Assert.That(actual, Is.EqualTo(true));
+        }
+        
+        [Test]
+        public void BalancedTreeTest2()
+        {
+            var treenode = new TreeNode(5)
+            {
+                Left = new TreeNode(2)
+                {
+                    Left = new TreeNode(1),
+                    Right = new TreeNode(3)
+                    {
+                        Right = new TreeNode(4)
+                    }
+                },
+                Right = new TreeNode(7)
+                {
+                    Left = new TreeNode(6),
+                    Right = new TreeNode(8)
+                    {
+                        Right = new TreeNode(9)
+                        {
+                            Left = new TreeNode(11)
+                        }
+                    }
+                }
+            };
+            var actual = IsBalancedTree(treenode);
+            
+            Assert.That(actual, Is.EqualTo(false));
+        }
+
+        [Test]
+        public void IsBinarySearchTreeTest()
+        {
+            var treenode = new TreeNode(5)
+            {
+                Left = new TreeNode(2)
+                {
+                    Left = new TreeNode(1),
+                    Right = new TreeNode(3)
+                    {
+                        Right = new TreeNode(4)
+                    }
+                },
+                Right = new TreeNode(7)
+                {
+                    Left = new TreeNode(6),
+                    Right = new TreeNode(8)
+                    {
+                        Right = new TreeNode(9)
+                        {
+                            Left = new TreeNode(11)
+                        }
+                    }
+                }
+            };
+            Assert.That(IsBinarySearchTree(treenode), Is.EqualTo(false));
+        }
+        
+        [Test]
+        public void IsBinarySearchTreeTest2()
+        {
+            var treenode = new TreeNode(5)
+            {
+                Left = new TreeNode(2)
+                {
+                    Left = new TreeNode(1),
+                    Right = new TreeNode(3)
+                    {
+                        Right = new TreeNode(4)
+                    }
+                },
+                Right = new TreeNode(7)
+                {
+                    Left = new TreeNode(4),
+                    Right = new TreeNode(8)
+                    {
+                        Right = new TreeNode(9)
+                    }
+                }
+            };
+            Assert.That(IsBinarySearchTree(treenode), Is.EqualTo(false));
+        }
+        
+        [Test]
+        public void IsBinarySearchTreeTest3()
+        {
+            var treeNode = new TreeNode(5)
+            {
+                Left = new TreeNode(2)
+                {
+                    Left = new TreeNode(1),
+                    Right = new TreeNode(3)
+                    {
+                        Right = new TreeNode(4)
+                    }
+                },
+                Right = new TreeNode(7)
+                {
+                    Left = new TreeNode(6),
+                    Right = new TreeNode(8)
+                    {
+                        Right = new TreeNode(9)
+                    }
+                }
+            };
+            Assert.That(IsBinarySearchTree(treeNode), Is.EqualTo(true));
+        }
+
+        [Test]
+        public void NextNodeTest4()
+        {
+            var node = new TreeNode(5);
+            var root = new TreeNode(6)
+            {
+                Left = new TreeNode(2)
+                {
+                    Left = new TreeNode(1),
+                    Right = new TreeNode(3)
+                    {
+                        Right = new TreeNode(4)
+                        {
+                            Right = node
+                        }
+                    }
+                },
+                Right = new TreeNode(7)
+                {
+                    Right = new TreeNode(8)
+                    {
+                        Right = new TreeNode(9)
+                    }
+                }
+            };
+            Assert.That(NextNode(root, node).Val, Is.EqualTo(7));
+        }
     }
 }
