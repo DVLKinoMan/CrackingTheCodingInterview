@@ -1,4 +1,5 @@
-﻿using CrackingTheCodingInterview.Domain.Classes;
+﻿using System.Collections.Generic;
+using CrackingTheCodingInterview.Domain.Classes;
 using NUnit.Framework;
 using static CrackingTheCodingInterview.Domain.TreesAndGraphs;
 
@@ -70,7 +71,7 @@ namespace CrackingTheCodingInterview.Tests
             var actual = MinimalTree(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9});
             Assert.That(actual, Is.EqualTo(expectedResult));
         }
-        
+
         [Test]
         public void ConstructLinkListNodesTest()
         {
@@ -119,10 +120,10 @@ namespace CrackingTheCodingInterview.Tests
                 }
             };
             var actual = IsBalancedTree(treenode);
-            
+
             Assert.That(actual, Is.EqualTo(true));
         }
-        
+
         [Test]
         public void BalancedTreeTest2()
         {
@@ -149,7 +150,7 @@ namespace CrackingTheCodingInterview.Tests
                 }
             };
             var actual = IsBalancedTree(treenode);
-            
+
             Assert.That(actual, Is.EqualTo(false));
         }
 
@@ -180,7 +181,7 @@ namespace CrackingTheCodingInterview.Tests
             };
             Assert.That(IsBinarySearchTree(treenode), Is.EqualTo(false));
         }
-        
+
         [Test]
         public void IsBinarySearchTreeTest2()
         {
@@ -205,7 +206,7 @@ namespace CrackingTheCodingInterview.Tests
             };
             Assert.That(IsBinarySearchTree(treenode), Is.EqualTo(false));
         }
-        
+
         [Test]
         public void IsBinarySearchTreeTest3()
         {
@@ -257,6 +258,62 @@ namespace CrackingTheCodingInterview.Tests
                 }
             };
             Assert.That(NextNode(root, node).Val, Is.EqualTo(7));
+        }
+
+        [Test]
+        public void BuildOrderTest()
+        {
+            var actual = BuildOrder(new List<char>() {'a', 'b', 'c', 'd', 'e', 'f'}, new List<(char x, char y)>()
+            {
+                ('a', 'd'),
+                ('f', 'b'),
+                ('b', 'd'),
+                ('f', 'a'),
+                ('d', 'c')
+            });
+
+            Assert.That(actual, Is.EquivalentTo(new List<char>() {'f', 'e', 'a', 'b', 'd', 'c'}));
+        }
+
+        [Test]
+        public void FirstCommonAncestorTest()
+        {
+            var node1 = new TreeNode(3)
+            {
+                Right = new TreeNode(4)
+                {
+                    Right = new TreeNode(78)
+                }
+            };
+            var node2 = new TreeNode(8)
+            {
+                Right = new TreeNode(9)
+            };
+            var root = new TreeNode(6)
+            {
+                Left = new TreeNode(2)
+                {
+                    Left = new TreeNode(1),
+                    Right = node1
+                },
+                Right = new TreeNode(7)
+                {
+                    Right = node2
+                }
+            };
+
+            Assert.That(FirstCommonAncestor(root, node1, node2), Is.EqualTo(root));
+        }
+
+        [Test]
+        public void BstSequencesTest()
+        {
+            var root = new TreeNode(2)
+            {
+                Left = new TreeNode(1),
+                Right = new TreeNode(3)
+            };
+            var actual = BstSequences(root);
         }
     }
 }
