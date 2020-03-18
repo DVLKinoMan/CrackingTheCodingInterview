@@ -435,5 +435,26 @@ namespace CrackingTheCodingInterview.Domain
         // might be positive or negative). Design an algorithm to count the number of paths that sum to a
         //     given value. The path does not need to start or end at the root or a leaf, but it must go downwards
         //     (traveling only from parent nodes to child nodes).
+        public static int PathsWithSumCount(TreeNode root, int targetSum)
+        {
+            var dict = new Dictionary<int, int>();
+            int count = 0;
+            Dfs(root);
+            return count;
+            
+            void Dfs(TreeNode node, int currSum = 0)
+            {
+                if (node == null)
+                    return;
+
+                currSum += node.Val;
+                if (dict.ContainsKey(targetSum - currSum))
+                    count += dict[targetSum - currSum];
+                dict[currSum] = dict.ContainsKey(currSum) ? dict[currSum] + 1 : 1;
+                Dfs(node.Left, currSum);
+                Dfs(node.Right, currSum);
+                dict[currSum]--;
+            }
+        }
     }
 }
