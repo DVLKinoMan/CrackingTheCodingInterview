@@ -16,6 +16,7 @@
       <e p="CrackingTheCodingInterview.Domain" t="IncludeRecursive">
         <e p="ArraysAndStrings.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="BitManipulation.cs" t="Include" />
         <e p="Classes" t="Include">
           <e p="CustomHashSet.cs" t="Include" />
           <e p="GraphNode.cs" t="Include" />
@@ -39,6 +40,7 @@
       <e p="CrackingTheCodingInterview.Tests" t="IncludeRecursive">
         <e p="ArrayAndStringsTester.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="BitManipulationTester.cs" t="Include" />
         <e p="CrackingTheCodingInterview.Tests.csproj" t="IncludeRecursive" />
         <e p="LinkedListsTester.cs" t="Include" />
         <e p="MyQueueTester.cs" t="Include" />
