@@ -112,11 +112,11 @@ namespace CrackingTheCodingInterview.Domain
             n |= (1 << (c1 - 1)) - 1; //Insert (c1 - 1) ones on the right
 
             return n;
-            
+
             //Second version:
             return n + (1 << c0) + (1 << (c1 - 1)) - 1;
         }
-        
+
         public static int GetPrevious(int n)
         {
             int temp = n, c0 = 0, c1 = 0;
@@ -128,13 +128,13 @@ namespace CrackingTheCodingInterview.Domain
 
             if (temp == 0)
                 return -1;
-            
-            while (((temp & 1) == 0) && (temp!=0))
+
+            while (((temp & 1) == 0) && (temp != 0))
             {
                 c0++;
                 temp >>= 1;
             }
-            
+
             int p = c0 + c1; //position of rightmost non-trailing one
             n &= ((~0) << (p + 1)); // clears from bit p onwards
 
@@ -142,9 +142,84 @@ namespace CrackingTheCodingInterview.Domain
             n |= mask << (c0 - 1);
 
             return n;
-            
+
             //Second version:
             return n - (1 << c1) - (1 << (c0 - 1)) + 1;
+        }
+
+        // 5.5 Debugger: Explain what the following code does: ((n & (n-1 )) == 0).
+        // If value n is a power of two
+
+        // 5.6 Conversion: Write a function to determine the number of bits you would need to flip to convert
+        // integer A to integer B.
+        //     EXAMPLE
+        //     Input: 29 (or: 11101), 15 (or: 01111)
+        //     Output: 2
+        public static int NumberOfBitsToFlip(int a, int b)
+        {
+            int num = a ^ b, count = 0;
+            while (num != 0)
+            {
+                count += num & 1;
+                num >>= 1;
+            }
+
+            return count;
+
+            //Second version:
+            // int count = 0;
+            // for (int c = a ^ b; c != 0; c = c & (c - 1))
+            //     count++;
+            //
+            // return count;
+        }
+
+        // 5.7 Pairwise Swap: Write a program to swap odd and even bits in an integer with as few instructions as
+        // possible (e.g., bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, and so on). 
+        public static int SwapOddEvenBits(int x)
+        {
+            return (int) (((x & 0xaaaaaaaa) >> 1) | ((x & 0x55555555) << 1));
+        }
+
+        // 5.8 Draw Line: A monochrome screen is stored as a single array of bytes, allowing eight consecutive
+        // pixels to be stored in one byte. The screen has width w, where w is divisible by 8 (that is, no byte will
+        // be split across rows). The height of the screen, of course, can be derived from the length of the array
+        // and the width. Implement a function that draws a horizontal line from ( xl, y) to ( x2, y).
+        // The method signature should look something like:
+        // drawline(byte[] screen, int width, int xl, int x2, int y) 
+        public static void DrawLine(byte[] screen, int width, int x1, int x2, int y)
+        {
+            int startOffset = x1 % 8;
+            int firstFullByte = x1 / 8 + (startOffset != 0 ? 1 : 0);
+
+            int endOffset = x2 % 8;
+            int lastFullByte = x2 / 8 + (endOffset != 7 ? -1 : 0);
+
+            for (int b = firstFullByte; b <= lastFullByte; b++)
+                screen[(width / 8) * y + b] = 0xff;
+
+            byte startMask = (byte) (0xff >> startOffset);
+            byte endMask = (byte) ~(0xff >> (endOffset + 1));
+
+            if ((x1 / 8) == (x2 / 8))
+            {
+                byte mask = (byte) (startMask & endMask);
+                screen[(width / 8) * y + (x1 / 8)] |= mask;
+            }
+            else
+            {
+                if (startOffset != 0)
+                {
+                    int byteNumber = (width / 8) * y + firstFullByte - 1;
+                    screen[byteNumber] |= startMask;
+                }
+
+                if (endOffset != 7)
+                {
+                    int byteNumber = (width / 8) * y + lastFullByte + 1;
+                    screen[byteNumber] |= endMask;
+                }
+            }
         }
     }
 }
