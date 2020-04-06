@@ -26,6 +26,7 @@
         </e>
         <e p="CrackingTheCodingInterview.Domain.csproj" t="IncludeRecursive" />
         <e p="LinkedLists.cs" t="Include" />
+        <e p="MathAndLogicPuzzles.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -33,6 +34,7 @@
             </e>
           </e>
         </e>
+        <e p="ObjectOrientedDesign.cs" t="Include" />
         <e p="StackAndQueues.cs" t="Include" />
         <e p="TreesAndGraphs.cs" t="Include" />
       </e>
@@ -52,6 +54,7 @@
             </e>
           </e>
         </e>
+        <e p="ObjectOrientedDesignTester.cs" t="Include" />
         <e p="StackAndQueuesTester.cs" t="Include" />
         <e p="TreesAndGraphsTester.cs" t="Include" />
       </e>
