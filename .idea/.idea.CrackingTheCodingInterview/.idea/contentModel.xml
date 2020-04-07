@@ -35,6 +35,7 @@
           </e>
         </e>
         <e p="ObjectOrientedDesign.cs" t="Include" />
+        <e p="RecursionAndDynamicProgramming.cs" t="Include" />
         <e p="StackAndQueues.cs" t="Include" />
         <e p="TreesAndGraphs.cs" t="Include" />
       </e>
@@ -55,6 +56,7 @@
           </e>
         </e>
         <e p="ObjectOrientedDesignTester.cs" t="Include" />
+        <e p="RecursionAndDynamicProgrammingTester.cs" t="Include" />
         <e p="StackAndQueuesTester.cs" t="Include" />
         <e p="TreesAndGraphsTester.cs" t="Include" />
       </e>
