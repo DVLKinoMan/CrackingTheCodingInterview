@@ -19,5 +19,12 @@ namespace CrackingTheCodingInterview.Tests
             var actual = RecursionAndDynamicProgramming.Parens(3);
             Assert.That(actual, Is.EquivalentTo(new []{"((()))", "(()())", "(())()", "()(())", "()()()"}));
         }
+
+        [Test]
+        public void BooleanEvaluationTester()
+        {
+            var actual = RecursionAndDynamicProgramming.BooleanEvaluation("1^0|0|1", false);
+            Assert.That(actual, Is.EqualTo(2));
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace CrackingTheCodingInterview.Domain
 {
@@ -151,13 +152,72 @@ namespace CrackingTheCodingInterview.Domain
                 Dfs(currNum + 1);
             }
         }
-        
+
         // 8.10 Paint Fill: Implement the"paint fill"function that one might see on many image editing programs.
         //     That is, given a screen (represented by a two-dimensional array of colors), a point, and a new color,
         // fill in the surrounding area until the color changes from the original color. 
-        
+
         // 8.11 Coins: Given an infinite number of quarters (25 cents), dimes (1 O cents), nickels (5 cents), and
         //     pennies (1 cent), write code to calculate the number of ways of representing n cents. 
-        
+        public static int CoinNumbers(int n)
+        {
+            if (n <= 0)
+                return 0;
+            int n1 = CoinNumbers(n - 1);
+            int n2 = CoinNumbers(n - 25);
+            int n3 = CoinNumbers(n - 10);
+            int n4 = CoinNumbers(n - 5);
+            return (n1 == 0 ? 0 : n1 + 1) + (n3 == 0 ? 0 : n3 + 1) + (n2 == 0 ? 0 : n2 + 1) + (n4 == 0 ? 0 : n4 + 1);
+        }
+
+        //8.12 Eight Queens:Write an algorithm to print all ways of arranging eight queens on an 8x8 chess board
+        // so that none of them share the same row, column, or diagonal. In this case, "diagonal" means all
+        // diagonals, not just the two that bisect the board. 
+
+        // 8.13 Stack of Boxes: You have a stack of n boxes, with widths w1
+        // , heights hi
+        //     , and depths di
+        //     . The boxes
+        //     cannot be rotated and can only be stacked on top of one another if each box in the stack is strictly
+        //     larger than the box above it in width, height, and depth. Implement a method to compute the
+        //     height of the tallest possible stack. The height of a stack is the sum of the heights of each box. 
+
+        // 8.14 Boolean Evaluation: Given a boolean expression consisting of the symbols 0 (false), 1 (true), &
+        // (AND), I (OR), and /\ (XOR), and a desired boolean result value result, implement a function to
+        // count the number of ways of parenthesizing the expression such that it evaluates to result. The
+        //     expression should be fully parenthesized (e.g., ( 0) A( 1)) but not extraneously (e.g., ( ( ( 0)) /\ ( 1)) ).
+        // EXAMPLE
+        //     countEval("l/\01011", false) -> 2
+        // countEval("0&0&0&1All0", true)-> 10 
+        public static int BooleanEvaluation(string expression, bool result)
+        {
+            if (string.IsNullOrEmpty(expression))
+                return 0;
+            if (expression.Length == 1)
+                return (result ? expression == "1" : expression == "0") ? 1 : 0;
+            int ways = 0;
+            for (int i = 1; i < expression.Length; i+=2)
+            {
+                var left = expression.Substring(0, i);
+                var right = expression.Substring(i + 1);
+
+                int leftTrue = BooleanEvaluation(left, true);
+                int leftFalse = BooleanEvaluation(left, false);
+                int rightTrue = BooleanEvaluation(right, true);
+                int rightFalse = BooleanEvaluation(right, false);
+                
+                int total = (leftTrue + leftFalse) * (rightTrue + rightFalse);
+
+                int totalTrue = expression[i] switch
+                {
+                    '^' => leftTrue * rightFalse + leftFalse * rightTrue,
+                    '&' => leftTrue * rightTrue,
+                    _ => leftTrue * rightTrue + leftFalse * rightTrue + leftTrue * rightFalse
+                };
+                ways += result ? totalTrue : total - totalTrue;
+            }
+
+            return ways;
+        }
     }
 }
