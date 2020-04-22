@@ -20,6 +20,7 @@
         <e p="Classes" t="Include">
           <e p="CustomHashSet.cs" t="Include" />
           <e p="GraphNode.cs" t="Include" />
+          <e p="Listy.cs" t="Include" />
           <e p="MyQueue.cs" t="Include" />
           <e p="MyStack.cs" t="Include" />
           <e p="TreeNode.cs" t="Include" />
