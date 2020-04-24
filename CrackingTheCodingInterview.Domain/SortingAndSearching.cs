@@ -172,5 +172,15 @@ namespace CrackingTheCodingInterview.Domain
                 return -1;
             return Search(strings, str, 0, strings.Length - 1);
         }
+        
+        // 10.6 Sort Big File: Imagine you have a 20 GB file with one string per line. Explain how you would sort
+        //     the file. 
+        
+        // 10.7 Missing Int: Given an input file with four billion non-negative integers, provide an algorithm to
+        //     generate an integer that is not contained in the file. Assume you have 1 GB of memory available for
+        // this task.
+        //     FOLLOW UP
+        // What if you have only 10 MB of memory? Assume that all the values are distinct and we now have
+        // no more than one billion non-negative integers. 
     }
 }
