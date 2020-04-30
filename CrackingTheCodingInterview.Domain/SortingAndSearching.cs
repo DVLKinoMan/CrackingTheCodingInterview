@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CrackingTheCodingInterview.Domain.Classes;
 
 namespace CrackingTheCodingInterview.Domain
@@ -172,15 +173,110 @@ namespace CrackingTheCodingInterview.Domain
                 return -1;
             return Search(strings, str, 0, strings.Length - 1);
         }
-        
+
         // 10.6 Sort Big File: Imagine you have a 20 GB file with one string per line. Explain how you would sort
         //     the file. 
-        
+
         // 10.7 Missing Int: Given an input file with four billion non-negative integers, provide an algorithm to
         //     generate an integer that is not contained in the file. Assume you have 1 GB of memory available for
         // this task.
         //     FOLLOW UP
         // What if you have only 10 MB of memory? Assume that all the values are distinct and we now have
         // no more than one billion non-negative integers. 
+
+        // 10.8 Find Duplicates: You have an array with all the numbers from 1 to N, where N is at most 32,000. The
+        //     array may have duplicate entries and you do not know what N is. With only 4 kilobytes of memory
+        //     available, how would you print all duplicate elements in the array? 
+
+        // 10.9 Sorted Matrix Search: Given an M x N matrix in which each row and each column is sorted in
+        // ascending order, write a method to find an element. 
+        public static bool SearchInSortedMatrix(int[,] matrix, int target)
+        {
+            int m = matrix.GetLength(0), n = matrix.GetLength(1);
+            if (m == 0 || n == 0)
+                return false;
+
+            int row = 0, col = n - 1;
+            while (col >= 0 && row < m)
+            {
+                if (matrix[row, col] == target)
+                    return true;
+                if (matrix[row, col] < target)
+                    row++;
+                else col--;
+            }
+
+            return false;
+        }
+
+        //10.10 Rank from Stream: Imagine you are reading in a stream of integers. Periodically, you wish to be able
+        // to look up the rank of a numberx (the number of values less than or equal to x). lmplementthe data
+        // structures and algorithms to support these operations. That is, implement the method track ( int
+        //     x), which is called when each number is generated, and the method getRankOfNumber(int
+        //     x), which returns the number of values less than or equal to x (not including x itself).
+        // EXAMPLE
+        //     Stream (in order of appearance): 5, 1, 4, 4, 5, 9, 7, 13, 3
+        // getRankOfNumber(l) 0
+        // getRankOfNumber(3) = 1
+        // getRankOfNumber(4) 3 
+        public class RankOfStream
+        {
+            private List<int> _list = new List<int>();
+
+            public void Track(int newNum)
+            {
+                int st = 0, end = _list.Count - 1, mid = 0;
+                while (st < end)
+                {
+                    mid = (st + end) / 2;
+                    if (_list[mid] == newNum)
+                        break;
+                    if (_list[mid] < newNum)
+                        st = mid + 1;
+                    else end = mid - 1;
+                }
+
+                if (newNum > _list[mid])
+                    _list.Insert(mid + 1, newNum);
+                else _list.Insert(mid, newNum);
+            }
+
+            public int GetRankOfNumber(int x)
+            {
+                int st = 0, end = _list.Count - 1, mid = 0;
+                while (st < end)
+                {
+                    mid = (st + end) / 2;
+                    if (_list[mid] == x)
+                        return mid;
+                    if (_list[mid] < x)
+                        st = mid + 1;
+                    else end = mid - 1;
+                }
+
+                return -1;
+            }
+        }
+
+        //10.11 Peaks and Valleys: In an array of integers, a "peak" is an element which is greater than or equal to
+        // the adjacent integers and a "valley" is an element which is less than or equal to the adjacent integers. For example, in the array {5, 8, 6, 2, 3, 4, 6}, {8, 6} are peaks and {5, 2} are valleys. Given an array
+        // of integers, sort the array into an alternating sequence of peaks and valleys.
+        // EXAMPLE
+        // Input: {5, 3, 1, 2, 3}
+        // Output: {5, 1, 3, 2, 3}
+        public static void PeaksAndValleys(int[] arr)
+        {
+            Array.Sort(arr);
+            int one = 0, two = 1;
+            while (two < arr.Length)
+            {
+                int l = arr[one];
+                arr[one] = arr[two];
+                arr[two] = l;
+                one += 2;
+                two += 2;
+            }
+        }
+        
     }
 }
