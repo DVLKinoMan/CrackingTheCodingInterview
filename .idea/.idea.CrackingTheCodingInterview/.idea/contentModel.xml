@@ -28,6 +28,7 @@
         <e p="CrackingTheCodingInterview.Domain.csproj" t="IncludeRecursive" />
         <e p="LinkedLists.cs" t="Include" />
         <e p="MathAndLogicPuzzles.cs" t="Include" />
+        <e p="ModerateProblems16Chapter.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -48,6 +49,7 @@
         <e p="BitManipulationTester.cs" t="Include" />
         <e p="CrackingTheCodingInterview.Tests.csproj" t="IncludeRecursive" />
         <e p="LinkedListsTester.cs" t="Include" />
+        <e p="ModerateProblems16ChapterTester.cs" t="Include" />
         <e p="MyQueueTester.cs" t="Include" />
         <e p="MyStackTester.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
